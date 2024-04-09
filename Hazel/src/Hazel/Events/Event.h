@@ -2,9 +2,6 @@
 
 #include "Hazel/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Hazel {
 
 	// Events in Hazel are blocking, meaning when an event occurs it has to be dealt with immediately
