@@ -2,7 +2,7 @@
 
 #ifdef HZ_PLATFORM_WINDOWS
 
-extern Hazel::Application* Hazel::CreateApplication();
+extern Hazel::Application* Hazel::CreateApplication();  // meaning information recieved from external sources (when the CLIENT declares it)
 
 int main(int argc, char** argv)
 {
@@ -11,7 +11,6 @@ int main(int argc, char** argv)
 	int a = 5;
 	HZ_INFO("Hello! Var={0} Var+1={1}", a, a+1);
 
-
 	auto app = Hazel::CreateApplication();
 	app->Run();
 	delete app;
@@ -19,4 +18,4 @@ int main(int argc, char** argv)
 
 #else
 	#error Hazel only supports Windows!
-#endif 
+#endif  
