@@ -1,5 +1,6 @@
 #pragma once
 
+#include "hzpch.h"
 #include "Hazel/Core.h"
 
 namespace Hazel {
@@ -40,7 +41,7 @@ namespace Hazel {
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
-		virtual std::string ToString() const { return GetName(); }
+		virtual std::string ToString() const   { return GetName(); }
 
 		inline bool IsInCategory(EventCategory category)  // inline essentially replaces the function call with the actual code inside the function.
 		{
@@ -63,10 +64,10 @@ namespace Hazel {
 		template<typename T>
 		bool Dispatch(EventFn<T> func)
 		{
-			if (m_Event.GetEventType == T::GetStaticType())
+			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event)
-					return true;
+				m_Event.m_Handled = func(*(T*)&m_Event);
+				return true;
 			}
 			return false;
 		}
